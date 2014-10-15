@@ -5,7 +5,7 @@ function sizer(s) {
         len = 0
         total = $(this).children().length - 1;
         $(this).children().each( function(index) {
-            if ($('body.xblocks').length == 1) {
+            if ($('body.mgnomargin').length == 1) {
                 $(this).css({'height':'auto'});
                 $(this).css({'width':'100%'});
             } else {
@@ -15,7 +15,7 @@ function sizer(s) {
             if (this.className.match(s+"\\d")) {
                 cols = this.className.match(s+"\\d")[0].split("-")[1];
                 boxes.push($(this))
-                if ($('body.xblocks').length == 1) {
+                if ($('body.mgnomargin').length == 1) {
                     w = (((cols / 12) * 100));
                 } else {
                     w = (((cols / 12) * 100) - 2);
@@ -51,7 +51,7 @@ function setsize() {
     }
     if ($(window).width() < 500) {
         $('.mgbox').each( function() {
-            if ($('body.xblocks').length == 1) {
+            if ($('body.mgnomargin').length == 1) {
                 $(this).css({'width':'100%'});
                 $(this).css({'height':'auto'});
             } else {

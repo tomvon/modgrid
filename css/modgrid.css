@@ -119,13 +119,13 @@ form {
   form input[type=submit]:active {
     background: #4477aa; }
 
-body.xblocks {
+body.mgnomargin {
   padding: 0; }
-  body.xblocks .mggroup .mgbox {
+  body.mgnomargin .mggroup .mgbox {
     margin: 0;
     width: 100%;
     border-radius: 0; }
-  body.xblocks .xheader, body.xblocks .xnav, body.xblocks .xfooter, body.xblocks #xmenu, body.xblocks .mgcontent {
+  body.mgnomargin .mgcontent {
     margin: 0;
     width: 100%;
     border-radius: 0; }
