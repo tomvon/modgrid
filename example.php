@@ -5,7 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="css" href="css/modgrid.css">
 </head>
-<body class="mgnomargin">
+<body>
+
+<div class="mgover">
+    <a href="#" class="close">X</a>
+    <div class="mgdata"></div>
+</div>
 
 <div class="mgcontent">
 

@@ -151,6 +151,30 @@ body.mgnomargin {
   .mgcontent .square {
     overflow: auto; }
 
+.xover {
+  display: none;
+  background: #ffffff;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  left: 5px;
+  box-shadow: 0 0 20px #000000;
+  z-index: 49;
+  border-radius: 4px;
+  padding: 5px; }
+  .xover .xdata {
+    margin: 0;
+    clear: both;
+    overflow: -moz-scrollbars-vertical;
+    overflow: auto;
+    box-shadow: none; }
+    .xover .xdata img.xfeature {
+      width: auto;
+      max-width: 100%;
+      margin: 2% auto 2% auto;
+      cursor: auto; }
+
 .center {
   display: block;
   margin-left: auto;
