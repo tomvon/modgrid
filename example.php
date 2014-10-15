@@ -17,7 +17,7 @@
         </div>
         
         <div class="mgbox lg-3 med-6">
-            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
+            <p>test lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
         </div>
         
         <div class="mgbox lg-3 med-6">
