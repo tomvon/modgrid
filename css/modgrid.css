@@ -18,7 +18,7 @@ img {
   border-radius: 4px;
   max-width: 100%; }
 
-img.xfeature {
+img.mgfeature {
   cursor: pointer;
   box-shadow: 0 0 2px #666666; }
 
@@ -151,7 +151,7 @@ body.mgnomargin {
   .mgcontent .square {
     overflow: auto; }
 
-.xover {
+.mgover {
   display: none;
   background: #ffffff;
   position: fixed;
@@ -163,17 +163,30 @@ body.mgnomargin {
   z-index: 49;
   border-radius: 4px;
   padding: 5px; }
-  .xover .xdata {
+  .mgover .mgdata {
     margin: 0;
     clear: both;
     overflow: -moz-scrollbars-vertical;
     overflow: auto;
     box-shadow: none; }
-    .xover .xdata img.xfeature {
+    .mgover .mgdata img.mgfeature {
       width: auto;
       max-width: 100%;
       margin: 2% auto 2% auto;
       cursor: auto; }
+
+.mgover a.close {
+  float: right;
+  background: #666666;
+  border-radius: 4px;
+  padding: 3px 8px 3px 8px;
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer; }
+.mgover a.close:hover {
+  background: #888888; }
 
 .center {
   display: block;

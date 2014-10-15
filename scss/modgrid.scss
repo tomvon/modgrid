@@ -223,6 +223,23 @@ body.mgnomargin {
     }
 }
 
+.mgover {
+    a.close {
+        float: right;
+        background: #666666;
+        border-radius: $borderradius;
+        padding: 3px 8px 3px 8px;
+        margin-bottom: 5px;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 1em;
+        cursor: pointer;
+    }
+    a.close:hover {
+        background: #888888;
+    }
+}
+
 .center {
     display: block;
     margin-left: auto;
