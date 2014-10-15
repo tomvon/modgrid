@@ -1,168 +1,44 @@
-@function swapcolor($color) {
-    @if (lightness($color) > 50) {
-        @return darken($color, 80%);
-    } @else {
-        @return lighten($color, 80%);
-    }
-}
-
-@function accentcolor($color) {
-    @if (lightness($color) == 0) {
-        @return lighten($color, 20%);
-    } @else if (lightness($color) == 100) {
-        @return darken($color, 4%);
-    } @else if (lightness($color) > 0) and (lightness($color) <= 10) {
-        @return lighten($color, 15%);
-    } @else if (lightness($color) > 10) and (lightness($color) <= 50) {
-        @return lighten($color, 15%);
-    } @else if (lightness($color) > 50) and (lightness($color) < 100) {
-        @return darken($color, 10%);
-    }
-}
-
-@function accentcolor2($color) {
-    @if (lightness($color) == 0) {
-        @return lighten($color, 25%);
-    } @else if (lightness($color) == 100) {
-        @return darken($color, 10%);
-    } @else if (lightness($color) > 0) and (lightness($color) <= 10) {
-        @return lighten($color, 20%);
-    } @else if (lightness($color) > 10) and (lightness($color) <= 50) {
-        @return lighten($color, 20%);
-    } @else if (lightness($color) > 50) and (lightness($color) < 100) {
-        @return darken($color, 15%);
-    }
-}
-
-@function linkcolor($color) {
-  @if (lightness($themecolor) > 50) {
-    @if (lightness($brandcolor) > 50) {
-        @return darken($brandcolor, 50%);
-    } @else {
-        @return $brandcolor;
-    }
-  } @else {
-    @if (lightness($brandcolor) < 50) {
-        @return lighten($brandcolor, 50%);
-    } @else {
-        @return $brandcolor;
-    }
-  }
-}
-
-@function adjustcontrast($color) {
-  @if (lightness($themecolor) > 50) {
-    @if (lightness($color) < 50) {
-        @return lighten($brandcolor, 70%);
-    } @else {
-        @return $color;
-    }
-  } @else {
-    @if (lightness($themecolor) < 50) {
-        @if (lightness($color) > 50) {
-            @return darken($color, 70%);
-        } @else {
-            @return $color;
-        }
-    }
-  }
-}
-
-@function themecolor($color,$value) {
-    @if (lightness($color) > 50) {
-        @return darken($color, $value);
-    } @else {
-        @return lighten($color, $value);
-    }
-}
-
-@function themedarken($color,$value) {
-    @return darken($color, $value);
-}
-
-@function themelighten($color,$value) {
-    @return lighten($color, $value);
-}
-
-/*
-Set your brand color here. 
-This will set the color of the header, nav, footer and links.
-*/
-$brandcolor: #336699;
-
-/*
-Set your theme color here. 
-This will set the overall color of the site.
-*/
-$themecolor: #ffffff;
-
-
-$headerfooternavcolor: $brandcolor;
-$headerfooternavtextcolor: swapcolor($brandcolor);
-$headerfooternavlinkcolor: swapcolor($brandcolor);
-$headerfooternavhovercolor: accentcolor2($brandcolor);
-$navsubmenucolor: accentcolor($brandcolor);
-$navsubmenuhovercolor: accentcolor2($brandcolor);
-
-$themeswap: swapcolor($themecolor);
-$themeoffset1: themecolor($themecolor,5%);
-$themeoffset2: themecolor($themecolor,10%);
-$themeoffset3: themecolor($themecolor,20%);
-$themeoffset4: themecolor($themecolor,30%);
-$themeoffset5: themecolor($themecolor,40%);
-$themeoffset6: themecolor($themecolor,50%);
-$themeoffset7: themecolor($themecolor,60%);
-$themeoffset8: themecolor($themecolor,70%);
-$themeoffset9: themecolor($themecolor,80%);
-$themeoffset10: themecolor($themecolor,90%);
-
-$tdgreen: adjustcontrast(#ccffcc);
-$tdred: adjustcontrast(#ffcccc);
-$tdyellow: adjustcontrast(#ffffcc);
-
-$borderradius: 3px;
+$borderradius: 4px;
 
 @mixin button {
     border: 0;
     padding: 3%;
-    font-size: 1.1em;
-    border-radius: 8px;
-    background: linkcolor($brandcolor);
-    color: $headerfooternavtextcolor;
-    box-shadow: inset 1px 3px 8px themelighten($brandcolor,10%), inset -1px -3px 8px themedarken($brandcolor,10%);
+    font-size: .9em;
+    border-radius: $borderradius;
+    background: #336699;
+    color: #ffffff;
+    box-shadow: inset 1px 1px 2px #6699cc, inset -1px -1px 2px #003366;
     cursor: pointer;
     text-align: center;
-    border: solid 3px $themeoffset2;
 }
 
 body {
-    font-size: .9em;
+    font-size: 1em;
     line-height: 1.4em;
     font-family: sans-serif;
-    background: $themeoffset2;
-    color: $themeswap;
+    background: #ffffff;
+    color: #444444;
     max-width: 1100px;
     margin: 0 auto 0 auto;
-    padding: 2%;
 }
 
 a, a:visited {
-    text-decoration: none;
-    color: linkcolor($brandcolor);
+    color: #336699;
 }
 
 a:hover {
-    color: themecolor(linkcolor($brandcolor),20%);
+    color: #6699cc;
 }
 
 img {
     display: block;
     border-radius: $borderradius;
+    max-width: 100%;
 }
 
 img.xfeature {
     cursor: pointer;
-    box-shadow: 0 0 2px $themeoffset8;
+    box-shadow: 0 0 2px #666666;
 }
 
 div {
@@ -180,26 +56,26 @@ thead {
 
 td {
     font-size: .9em;
-    border: solid 1px $themeoffset3;
+    border: solid 1px #cccccc;
     padding: 1%;
     white-space: nowrap;
 }
 
 td.green {
-    background: $tdgreen;
+    background: #ccffcc;
 }
 
 td.red {
-    background: $tdred;
+    background: #ffcccc;
 }
 
 td.yellow {
-    background: $tdyellow;
+    background: ffffcc;
 }
 
 h1, h2, h3, h4, h5 , h6 {
     margin: 1% 0 1% 0;
-    color: $themeoffset8;
+    color: #666666;
 }
 
 h1 {
@@ -256,24 +132,24 @@ form {
     input[type=text], textarea {
         width: 94%;
         margin: 0;
-        background: $themeoffset3;
-        color: swapcolor($themecolor);
+        background: #dddddd;
+        color: #000000;
         border-radius: $borderradius;
         border: 0;
         padding: 2%;
         font-size: 1em;
         line-height: 1.4em;
-        box-shadow: inset 3px 3px 5px themedarken($themeoffset3,10%), inset -3px -3px 5px themelighten($themeoffset3,10%);
+        box-shadow: inset 1px 1px 2px #cccccc, inset -1px -1px 2px #ffffff;
     }
     input[type=submit] {
         float: right;
         @include button;
     }
     input[type=submit]:hover {
-        background: themecolor(linkcolor($brandcolor),20%);
+        background: #4477aa;
     }
     input[type=submit]:active {
-        background: themecolor(linkcolor($brandcolor),40%);
+        background: #4477aa;
     }
 }
 
@@ -293,121 +169,16 @@ body.xblocks {
     }
 }
 
-.xheader, .xnav, .xfooter, #xmenu {
-    padding: 2%;
-    margin: 1% 1% 3% 1%;
-    width: 98%;
-    clear: both;
-    float: left;
-    border-radius: $borderradius;
-}
-
-.xheader, .xfooter {
-    color: $headerfooternavtextcolor;
-    background: $headerfooternavcolor;
-    padding-left: 3%;
-}
-
-.xheader {
-    padding-top: 3%;
-    h1 {
-        color: $headerfooternavtextcolor;
-        margin: 1% 0 1% 0;
-        line-height: 1.2em;
-        .xlogo {
-            width: 16px;
-            display: inline-block;
-            margin: 0 1% 0 0;
-            border-radius: $borderradius;
-        }
-    }
-    a {
-        color: $headerfooternavlinkcolor;
-    }
-}
-
-#xmenu {
-    background: $headerfooternavcolor;
-    a {
-        font-weight: bold;
-        display: block;
-        color: $headerfooternavtextcolor;
-    }
-}
-
-#xmenu:hover {
-    background: $headerfooternavhovercolor;
-}
-
-.xnav {
-    padding: 0;
-    background: none;
-    display: none;
-    margin-top: 0;
-    ul {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        li {
-            position: relative;
-            .menu {
-                position: absolute;
-                right: 8px;
-                z-index: 21;
-                background: $navsubmenucolor;
-                padding: 0px 10px 0px 10px;
-                border-radius: $borderradius;
-                cursor: pointer;
-                margin-top: 2%;
-                color: $headerfooternavtextcolor;
-            }
-            .menu:hover {
-                background: $headerfooternavhovercolor;
-            }
-            a {
-                box-sizing: border-box;
-                display: block;
-                width: auto;
-                padding: 2%;
-                background: $headerfooternavcolor;
-                margin-bottom: 2px;
-                color: $headerfooternavtextcolor;
-                border-radius: $borderradius;
-            }
-            a:hover {
-                background: $headerfooternavhovercolor;
-            }
-            ul {
-                display: none;
-                li {
-                    a {
-                        background: $navsubmenucolor;
-                        padding-left: 4%;
-                    }
-                    a:hover {
-                        background: $navsubmenuhovercolor;
-                    }
-                }
-            }
-        }
-    }
-}
-
 .mgcontent {
     float: left;
-    margin: 0;
-    width: 100%;
-    a {
-        background: $themeoffset1;
-        padding: 0 5px 0 5px;
-        border-radius: $borderradius;
-    }
+    margin: 2%;
+    width: 96%;
     .mggroup {
         clear: both;
         overflow: hidden;
     }
     .mgbox {
-        background: $themecolor;
+        background: #eeeeee;
         padding: 3%;
         margin: 1% 1% 3% 1%;
         float: left;
@@ -423,141 +194,6 @@ body.xblocks {
         overflow: auto;
     }
     
-}
-
-.xfooter {
-    margin-bottom: 10%;
-    clear: both;
-}
-
-.xbreak {
-    clear: both;
-}
-
-.xover {
-    display: none;
-    background: $themecolor;
-    position: fixed;
-    top: 5px;
-    right: 5px;
-    bottom: 5px;
-    left: 5px;
-    box-shadow: 0 0 20px $themeswap;
-    z-index: 49;
-    border-radius: $borderradius;
-    padding: 5px;
-    .xdata {
-        margin: 0;
-        clear: both;
-        overflow: -moz-scrollbars-vertical;
-        overflow: auto;
-        box-shadow: none;
-        img.xfeature {
-            width: auto;
-            max-width: 100%;
-            margin: 2% auto 2% auto;
-            cursor: auto;
-        }
-    }
-}
-
-.xactions {
-    background: $themeoffset3;
-    position: fixed;
-    top: 25%;
-    left: 0;
-    z-index: 51;
-    border-radius: 0 $borderradius 0 $borderradius;
-    box-shadow: 0 0 5px darken($themeoffset1,20%);
-    width: auto;
-    padding: 5px;
-    .xdata {
-        display: none;
-        clear: both;
-        padding: 0;
-        overflow: -moz-scrollbars-vertical;
-        overflow: auto;
-        box-shadow: none;
-        ul.buttons {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            li {
-                padding: 3px 6px 3px 6px;
-                margin-bottom: 2px;
-                background: $themeoffset2;
-                border-radius: $borderradius;
-                box-shadow: inset 0 -3px 10px darken($themeoffset2,10%);
-                cursor: pointer;
-            }
-            li:hover {
-                background: $themeoffset3;
-            }
-        }
-    }
-    .title {
-        display: none;
-        float: left;
-        margin: 3px 5px 0 10px;
-        font-weight: bold;
-    }
-    a.open {
-        display: block;
-        float: left;
-        width: 10px;
-        text-align: center;
-        z-index: 60;
-        background: $themeoffset8;
-        border-radius: $borderradius;
-        padding: 3px 8px 3px 8px;
-        color: $themecolor;
-        font-weight: bold;
-        font-size: 1em;
-        cursor: pointer;
-    }
-    a.close:hover {
-        background: $themeoffset6;
-    }
-    a.close {
-        display: none;
-    }
-}
-
-.xover, .xactions {
-    a.close {
-        float: right;
-        background: $themeoffset8;
-        border-radius: $borderradius;
-        padding: 3px 8px 3px 8px;
-        margin-bottom: 5px;
-        color: $themecolor;
-        font-weight: bold;
-        font-size: 1em;
-        cursor: pointer;
-    }
-    a.close:hover {
-        background: $themeoffset6;
-    }
-}
-
-.viewdata {
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjg0ODM0RjZDMkJEMjExRTRBMTIxQ0I0ODU3OTI0NUU0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjg0ODM0RjZEMkJEMjExRTRBMTIxQ0I0ODU3OTI0NUU0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6ODQ4MzRGNkEyQkQyMTFFNEExMjFDQjQ4NTc5MjQ1RTQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6ODQ4MzRGNkIyQkQyMTFFNEExMjFDQjQ4NTc5MjQ1RTQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6ubFV3AAAAG0lEQVR42mJkYGBwYCACMDEQCUYVUkchQIABAHceAFQMjNAFAAAAAElFTkSuQmCC);
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    p {
-        width: 50%;
-        position: absolute;
-        top: 40%;
-        left: 20%;
-        margin: 0 auto 0 auto;
-        @include button;
-    }
-    p:hover {
-        background: themecolor(linkcolor($brandcolor),20%);
-    }
 }
 
 .center {
@@ -584,38 +220,9 @@ body.xblocks {
     
     body {
         font-size: .9em;
-        padding: 1%;
-    }
-    
-    .xheader, .xfooter {
-        padding: 1% 1% 1% 2%;
-    }
-    
-    .xheader, #xmenu {
-        margin: 1%;
-        padding-top: 1%;
-    }
-    
-    #xmenu {
-        padding: 1% 1% 1% 2%;
-    }
-    
-    .xnav {
-        margin-bottom: 1%;
-        ul {
-            li {
-                .menu {
-                    margin-top: 1.5%;
-                }
-                a {
-                    padding: 1.5%;
-                }
-            }
-        }
     }
     
     .mgcontent {
-        margin: 0;
         .mggroup {
             .mgbox.xmed-1 {
                 width: 6%;
@@ -665,27 +272,7 @@ body.xblocks {
 // Large screens
 @media only screen and (min-width: 800px) { 
     
-    .xheader {
-        float: left;
-        width: 70%;
-    }
-    
-    #xmenu {
-        float: left;
-        width: 26%;
-        clear: right;
-        padding: 1%;
-        a {
-            font-size: 1.4em;
-            line-height: 1.4em;
-            padding: 2%;
-        }
-    }
-    
     .mgcontent {
-        float: left;
-        position: relative;
-        z-index: 15;
         .mggroup {
             .mgbox.xlg-1 {
                 width: 6%;
@@ -727,45 +314,6 @@ body.xblocks {
         .mgbox {
             padding: 1%;
             margin: 1%;
-        }
-    }
-    
-    .xfooter {
-        width: 98%;
-    }
-    
-    .xnav {
-        margin: 1%;
-        overflow: visible !important;
-        ul {
-            li {
-                .menu {
-                    margin-top: 2%;
-                }
-                width: 24%;
-                margin-right: 1%;
-                float: left;
-                position: relative;
-                z-index: 16;
-                a {
-                    padding: 2%;
-                }
-                ul {
-                    background: $themeoffset3;
-                    box-shadow: 2px 2px 5px $themeoffset5;
-                    position: absolute;
-                    right: 0;
-                    top: 20;
-                    z-index: 17;
-                    li {
-                        width: 100%;
-                    }
-                }
-            }
-            li:nth-child(4n+4) {
-                width: 25%;
-                margin-right: 0;
-            }
         }
     }
     
