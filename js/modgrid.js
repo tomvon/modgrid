@@ -73,7 +73,6 @@ $(window).load( function() {
 
 $(document).ready(function() {
     setsize();
-    tablelaunch();
     $(window).resize( function() {
         setsize();
         tablelaunch();
@@ -98,7 +97,7 @@ $(document).ready(function() {
         }
     });
     
-    $('.xover a.close').on('click', function() {
+    $('.mgover a.close').on('click', function() {
         closeoverlay();
         return false;
     });
@@ -113,22 +112,22 @@ $(document).ready(function() {
       }
     });
     
-    $('img.xfeature').each( function() {
+    $('img.mgfeature').each( function() {
         if ($(this).attr('data-lg')) {
             $(this).css({'cursor':'pointer'});
         }
     });
     
-    $('img.xfeature').on('click', function() {
+    $('img.mgfeature').on('click', function() {
         if ($(this).attr('data-lg')) {
-            $('.xover').fadeIn('fast');
-            img = '<img src="'+$(this).attr('data-lg')+'" class="xfeature">';
-            $('.xover .xdata').html(img);
+            $('.mgover').fadeIn('fast');
+            img = '<img src="'+$(this).attr('data-lg')+'" class="mgfeature">';
+            $('.mgover .mgdata').html(img);
         }
     });
     
-    if ($('.xdata img.xfeature').height() > $('.xdata').height()) {
-        $('.xdata img.xfeature').css({'height':'100px'});
+    if ($('.xdata img.mgfeature').height() > $('.xdata').height()) {
+        $('.xdata img.mgfeature').css({'height':'100px'});
     }
     
 });

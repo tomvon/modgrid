@@ -67,7 +67,7 @@
         </div>
         
         <div class="mgbox lg-3 med-6">
-            <img src="example.jpg" alt="Sample Image">
+            <img src="example.jpg" data-lg="example.jpg" alt="Sample Image" class="mgfeature">
             <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
         </div>
         
