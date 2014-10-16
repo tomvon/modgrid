@@ -75,7 +75,6 @@ $(document).ready(function() {
     setsize();
     $(window).resize( function() {
         setsize();
-        tablelaunch();
         if ($('.xnav').is(':visible')) {
             if ($(window).width() > 500) {
                 $('#xmenu').css({'margin-bottom':'2px'});
