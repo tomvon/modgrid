@@ -44,6 +44,13 @@
         
         <div class="mgbox lg-3 med-6">
             <form method="post" action="/">
+                <fieldset>
+                    <label for="type">Type</label>
+                    <select name="type">
+                    	<option>Post</option>
+                    	<option>Page</option>
+                    </select>
+                </fieldset>
             	<fieldset>
             	    <label for="name">Name</label>
             	    <input type="text" name="name">

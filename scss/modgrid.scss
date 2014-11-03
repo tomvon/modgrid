@@ -151,6 +151,9 @@ form {
     input[type=submit]:active {
         background: #4477aa;
     }
+    select {
+        width: 100%;
+    }
 }
 
 body.mgnomargin {
