@@ -93,7 +93,7 @@ form {
     margin: 0 0 10px 0;
     padding: 0; }
   form input[type=text], form textarea {
-    width: 94%;
+    width: 96%;
     margin: 0;
     background: #dddddd;
     color: #000000;
@@ -146,8 +146,6 @@ body.mgnomargin {
     overflow: hidden;
     border-radius: 4px;
     position: relative; }
-    .mgcontent .mgbox img {
-      margin: 0 0 10px 0; }
   .mgcontent .square {
     overflow: auto; }
 
