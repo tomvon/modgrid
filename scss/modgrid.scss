@@ -155,6 +155,11 @@ form {
         width: 100%;
         font-size: 1.1em;
     }
+    select[multiple] {
+        width: 100%;
+        font-size: 1em;
+        border: solid 1px #cccccc;
+    }
 }
 
 body.mgnomargin {
