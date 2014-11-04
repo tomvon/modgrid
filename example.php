@@ -51,6 +51,13 @@
                     	<option>Page</option>
                     </select>
                 </fieldset>
+                <fieldset>
+                    <label for="type">Type</label>
+                    <select multiple name="type">
+                    	<option>Post</option>
+                    	<option>Page</option>
+                    </select>
+                </fieldset>
             	<fieldset>
             	    <label for="name">Name</label>
             	    <input type="text" name="name">
